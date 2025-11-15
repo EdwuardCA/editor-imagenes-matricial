@@ -369,11 +369,19 @@ function convertirEscalaGrises(matriz) {
  */
 function voltearHorizontal(matriz) {
   // TODO: Implementar volteo horizontal
-  
   // Pista: Puedes usar .reverse() en cada fila
   // o construir manualmente invirtiendo el orden
-  
-  return []; // REEMPLAZAR
+  // Validar
+  validarMatriz(matriz);
+
+  // Copiar para no modificar la original
+  const resultado = copiarMatriz(matriz);
+
+  // Invertir cada fila
+  for (let y = 0; y < resultado.length; y++) {
+    resultado[y] = resultado[y].reverse();
+  }
+  return resultado; // REEMPLAZAR
 }
 
 /**
@@ -393,8 +401,13 @@ function voltearHorizontal(matriz) {
  */
 function voltearVertical(matriz) {
   // TODO: Implementar volteo vertical
-  
-  return []; // REEMPLAZAR
+  // 1. Validar la matriz original
+  validarMatriz(matriz);
+  // 2. Crear copia para no modificar la original
+  const resultado = copiarMatriz(matriz);
+  // 3. Invertir el orden de las filas
+  resultado.reverse();
+  return resultado; // REEMPLAZAR
 }
 
 /**
@@ -418,12 +431,28 @@ function voltearVertical(matriz) {
  */
 function rotar90Grados(matriz) {
   // TODO: Implementar rotación de 90 grados
-  
   // Opción 1: Hacer transpuesta manualmente considerando que son objetos
   // Opción 2: Construir directamente la matriz rotada
   //   nuevoPixel[j][alto - 1 - i] = pixelOriginal[i][j]
+  // 1. Validar la matriz original
+  validarMatriz(matriz);
+  const { filas, columnas } = obtenerDimensiones(matriz);
+
+  //crear nueva matriz con dimensiones invertidas (columna -> filas)
+  const resultado = crearMatrizVacia(columnas, filas);
+  //Rellenar usando la fórmula matematicamente correcta
+  for (let i = 0; i < filas; i++) {
+    for (let j = 0; j < columnas; j++) {
+      resultado[j][filas - 1 - i] = crearPixel(
+        matriz[i][j].r,
+        matriz[i][j].g,
+        matriz[i][j].b,
+        matriz[i][j].a
+      );
+    }
+  }
   
-  return []; // REEMPLAZAR
+  return resultado; // REEMPLAZAR
 }
 
 // ============================================
