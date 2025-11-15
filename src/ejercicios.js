@@ -240,19 +240,19 @@ function ajustarBrillo(matriz, factor) {
   // TODO: Implementar ajuste de brillo
   
   // 1. Crear matriz resultado
-  // const resultado = copiarMatriz(matriz);
+   const resultado = copiarMatriz(matriz);
   
   // 2. Para cada pixel, multiplicar R, G, B por el factor
-  // for (let i = 0; i < resultado.length; i++) {
-  //   for (let j = 0; j < resultado[i].length; j++) {
-  //     resultado[i][j].r = limitarValorColor(matriz[i][j].r * factor);
-  //     resultado[i][j].g = limitarValorColor(matriz[i][j].g * factor);
-  //     resultado[i][j].b = limitarValorColor(matriz[i][j].b * factor);
-  //     // El canal alpha NO se modifica
-  //   }
-  // }
+   for (let i = 0; i < resultado.length; i++) {
+     for (let j = 0; j < resultado[i].length; j++) {
+       resultado[i][j].r = limitarValorColor(matriz[i][j].r * factor);
+       resultado[i][j].g = limitarValorColor(matriz[i][j].g * factor);
+       resultado[i][j].b = limitarValorColor(matriz[i][j].b * factor);
+       // El canal alpha NO se modifica
+     }
+   }
   
-  return []; // REEMPLAZAR
+  return resultado; // REEMPLAZAR
 }
 
 /**
@@ -275,8 +275,28 @@ function ajustarBrillo(matriz, factor) {
  */
 function invertirColores(matriz) {
   // TODO: Implementar inversión de colores
-  
-  return []; // REEMPLAZAR
+  // 1. Validar matriz
+  validarMatriz(matriz);
+
+  // 2. Crear copia (para no modificar la original)
+  const resultado = copiarMatriz(matriz);
+
+  // 3. Recorrer y aplicar la operación de inversión
+  for (let y = 0; y < resultado.length; y++) {
+    for (let x = 0; x < resultado[y].length; x++) {
+      const pixel = resultado[y][x];
+
+      resultado[y][x] = {
+        r: 255 - pixel.r,
+        g: 255 - pixel.g,
+        b: 255 - pixel.b,
+        a: pixel.a       // La transparencia NO se invierte
+      };
+    }
+  }
+
+  // 4. Devolver la matriz invertida
+    return resultado; // REEMPLAZAR
 }
 
 /**
@@ -295,15 +315,36 @@ function invertirColores(matriz) {
  */
 function convertirEscalaGrises(matriz) {
   // TODO: Implementar conversión a escala de grises
-  
   // Para cada pixel:
   // 1. Calcular el valor de gris
   // const gris = 0.299 * pixel.r + 0.587 * pixel.g + 0.114 * pixel.b;
   // 
   // 2. Asignar ese valor a los tres canales
   // pixelNuevo = {r: gris, g: gris, b: gris, a: pixel.a}
-  
-  return []; // REEMPLAZAR
+  // Validar matriz original
+  validarMatriz(matriz);
+
+  // Crear copia para no modificar la original
+  const resultado = copiarMatriz(matriz);
+
+  for (let y = 0; y < resultado.length; y++) {
+    for (let x = 0; x < resultado[y].length; x++) {
+      const pixel = resultado[y][x];
+
+      // Calcular valor de gris usando promedio ponderado
+      const gris = 0.299 * pixel.r + 0.587 * pixel.g + 0.114 * pixel.b;
+
+      // Asignar el valor a los tres canales (manteniendo alpha)
+      resultado[y][x] = {
+        r: gris,
+        g: gris,
+        b: gris,
+        a: pixel.a
+      };
+    }
+  }
+
+  return resultado; // REEMPLAZAR
 }
 
 // ============================================
