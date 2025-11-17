@@ -29,9 +29,6 @@ El archivo donde resolví todos los ejercicios es:
 
 *src/ejercicios.js*
 
-
-Cada función estaba marcada con // TODO: y fue implementada siguiendo las instrucciones proporcionadas.
-
 ## 3. Ejecutar las pruebas automáticas
 npm test
 
