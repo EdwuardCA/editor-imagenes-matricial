@@ -1,5 +1,115 @@
 # Editor de Imágenes con Álgebra Matricial
 
+**Fundamentos de Álgebra – Unidad III: Álgebra Lineal Aplicada**  
+**Tecnológico de Software**  
+**Alumno:** Luis Edwuard Chay Ascorra  
+**Grupo:** 1°A  
+**Fecha:** Noviembre 2025
+
+---
+
+## Objetivo del Proyecto
+El objetivo de este proyecto es aplicar conceptos de álgebra lineal para modificar imágenes digitales representadas como matrices de píxeles.  
+A través de transformaciones matemáticas como combinaciones lineales, diferencias, transposición y filtros, pude implementar efectos visuales similares a los que se usan en el procesamiento digital de imágenes.
+
+Este proyecto me permitió experimentar cómo el álgebra lineal se utiliza en áreas como visión por computadora, efectos gráficos y análisis de imágenes.
+
+---
+
+## Instrucciones de Ejecución
+
+### 1. Instalar dependencias
+
+*npm install*
+
+---
+
+## 2. Completar funciones
+El archivo donde resolví todos los ejercicios es:
+
+*src/ejercicios.js*
+
+
+Cada función estaba marcada con // TODO: y fue implementada siguiendo las instrucciones proporcionadas.
+
+## 3. Ejecutar las pruebas automáticas
+npm test
+
+## Pruebas Automáticas
+
+Para ejecutarlas basta usar:
+
+npm test
+
+## Funciones Implementadas
+> Sección 1 – Lectura y conversión de imágenes
+
+imagenAMatriz()
+
+matrizAImagen()
+
+obtenerCanal()
+
+obtenerDimensionesImagen()
+
+> Sección 2 – Transformaciones básicas por píxel
+
+Invertir colores
+
+Convertir a escala de grises
+
+Manipulación simple de valores RGB
+
+> Sección 3 – Transformaciones geométricas
+
+Voltear horizontal
+
+Voltear vertical
+
+Rotar 90° utilizando transposición y volteo
+
+> Sección 4 – Filtros y efectos
+
+Mezcla lineal entre dos imágenes
+
+Filtro sepia
+
+Detector de bordes (operador simplificado)
+
+Cada función usa conceptos matemáticos como:
+
+suma de matrices
+
+combinaciones lineales
+
+diferencias entre valores
+
+transposición
+
+operaciones punto a punto (element-wise)
+
+manipulación de canales de color
+
+Si todas las funciones están correctamente implementadas, las pruebas aparecerán en verde indicando que el trabajo está completo.
+daria el *passed*
+Esto permite verificar que cada ejercicio cumple con los requisitos del proyecto.
+
+# Conclusión Personal
+
+Este proyecto me ayudó a comprender cómo una imagen puede verse como una matriz y cómo el álgebra lineal permite transformarla mediante operaciones numéricas.
+Pude aplicar de forma práctica:
+
+transposición, diferencias y comparaciones entre píxeles, combinaciones lineales, filtros por canal, y transformaciones geométricas.
+
+Además, fortalecí mis habilidades en JavaScript, manejo de arreglos bidimensionales y el uso de pruebas automatizadas para validar código :).
+
+---
+
+
+
+
+# Editor de Imágenes con Álgebra Matricial
+
 **Fundamentos de Álgebra - Unidad III: Álgebra Lineal Aplicada**  
 Tecnológico de Software
 
